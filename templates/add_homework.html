@@ -84,7 +84,7 @@
             $('#date').change(function() {
                 var selectedOption = $(this).val(); 
                 $.ajax({
-                    url: 'http://127.0.0.1:30000/schedule_day', 
+                    url: 'http://16.16.198.178/schedule_day', 
                     method: 'POST', 
                     contentType: 'application/x-www-form-urlencoded',
                     data: { option: selectedOption}, 
@@ -101,7 +101,7 @@
             function startSecondSelect() {
                 var first_option = $('#date option:nth-child(1)').val(); 
                 $.ajax({
-                    url: 'http://127.0.0.1:30000/schedule_day', 
+                    url: 'http://16.16.198.178/schedule_day', 
                     method: 'POST', 
                     contentType:'application/x-www-form-urlencoded',
                     data: { option: first_option}, 
@@ -131,7 +131,7 @@
             const hw = document.getElementById('hw_input').value;
             const data = {'date':date,'subject':subject,'hw':hw}
             $.ajax({
-                url : 'http://127.0.0.1:30000/add_homework_done',
+                url : 'http://16.16.198.178/add_homework_done',
                 method: 'POST',
                 contentType:'application/json',
                 data: JSON.stringify({'data':data})

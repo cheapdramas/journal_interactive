@@ -72,7 +72,7 @@ async def schedule_lobby(request:Request):
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(0)
     title = 'Розклад на понеділок'
-    route = 'http://127.0.0.1:30000/change_schedule?day_index=1'
+    route = 'http://16.16.198.178/change_schedule?day_index=1'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -82,7 +82,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(1)
     title = 'Розклад на вівторок'
-    route = 'http://127.0.0.1:30000/change_schedule?day_index=2'
+    route = 'http://16.16.198.178/change_schedule?day_index=2'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -91,7 +91,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(2)
     title = 'Розклад на середу'
-    route = 'http://127.0.0.1:30000/change_schedule?day_index=3'
+    route = 'http://16.16.198.178/change_schedule?day_index=3'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -101,7 +101,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(3)
     title = 'Розклад на четвер'
-    route = 'http://127.0.0.1:30000/change_schedule?day_index=4'
+    route = 'http://16.16.198.178/change_schedule?day_index=4'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -111,7 +111,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(4)
     title = "Розклад на п'ятницю"
-    route = 'http://127.0.0.1:30000/change_schedule?day_index=5'
+    route = 'http://16.16.198.178/change_schedule?day_index=5'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
