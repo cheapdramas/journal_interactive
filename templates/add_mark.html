@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поставити оцінку</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .link-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+        .padd {
+            padding: 60px 20px 20px 20px; /* Adjusted padding to avoid overlap */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Add margin to ensure spacing between elements */
+        }
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="https://127.0.0.1:8000/" class="link-button">Назад у меню</a>
+    </div>
+    <div class='padd'>
+        <span>
+            <p style="text-align:center">
+                Кому сьогодні двійка?
+            </p>
+            
+                <div class="form-group">
+                    <label style="width: 100px;">Кому:</label>
+                    <select name="student" id="select1">
+                        {% for student in student_list %}
+                            <option value={{student[0]}} id='student'>{{student[1]}}</option>
+                        {% endfor %}                
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label style="width: 100px;">Предмет:</label>
+                    <select name='subject' id="select2">
+                        {% for subj in subj_list %}
+                            <option value={{subj_list.index(subj)}}>{{subj}}</option>
+                        {% endfor %}  
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label style="width: 100px;">Оцінка:</label>
+                    <select name='mark' id="select3" >
+                        {% for mark in marks_list %}
+                            <option value={{mark}}>{{mark}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>За що:</label>
+                    <input type='text' name='reason' id='textInput'>
+                </div>
+                <div class="button-container">
+                    <div class="button" onclick="sendData()">Відправити</div>
+                </div>
+            
+        </span>
+    </div>
+    <script>
+        
+
+        function sendData() {
+            const student = document.getElementById('select1').value;
+            const subject = document.getElementById('select2').value;
+            const mark = document.getElementById('select3').value;
+            const reason = document.getElementById('textInput').value;
+
+            const data = `student=${encodeURIComponent(student)}&subject=${encodeURIComponent(subject)}&mark=${encodeURIComponent(mark)}&reason=${encodeURIComponent(reason)}`;
+
+            fetch('http://127.0.0.1:30000/add_marks_post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data
+            })
+            
+            
+        }
+
+
+        
+    </script>
+</body>
+</html>
