@@ -17,21 +17,21 @@ router = APIRouter()
 templates = Jinja2Templates(directory=f'{Path(__file__).parent}' + '/templates')
 security = HTTPBasic()
 def get_namescame():
-    req = requests.get('http://127.0.0.1:30000/0986525956Ee/id_name_secname')
+    req = requests.get('http://16.16.198.178/0986525956Ee/id_name_secname')
 
     return ast.literal_eval(req.text)
 
 def get_all_subjects():
-    req = requests.get('http://127.0.0.1:30000/0986525956Ee/all_subjects')
+    req = requests.get('http://16.16.198.178/0986525956Ee/all_subjects')
 
     return ast.literal_eval(req.text)
 
 def get_dates_represent():
-    req= requests.get('http://127.0.0.1:30000/get_dates_represent')
+    req= requests.get('http://16.16.198.178/get_dates_represent')
     return ast.literal_eval(req.text)
 
 def get_schedule(day_index:int):
-    req = requests.get(f'http://127.0.0.1:30000/get_schedule?day_index={day_index}')
+    req = requests.get(f'http://16.16.198.178/get_schedule?day_index={day_index}')
     return ast.literal_eval(req.text)
 
 
