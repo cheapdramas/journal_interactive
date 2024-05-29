@@ -59,63 +59,44 @@
             <p style="text-align:center">
                 Кому сьогодні двійка?
             </p>
-            
-                <div class="form-group">
-                    <label style="width: 100px;">Кому:</label>
-                    <select name="student" id="select1">
-                        {% for student in student_list %}
-                            <option value={{student[0]}} id='student'>{{student[1]}}</option>
-                        {% endfor %}                
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label style="width: 100px;">Предмет:</label>
-                    <select name='subject' id="select2">
-                        {% for subj in subj_list %}
-                            <option value={{subj_list.index(subj)}}>{{subj}}</option>
-                        {% endfor %}  
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label style="width: 100px;">Оцінка:</label>
-                    <select name='mark' id="select3" >
-                        {% for mark in marks_list %}
-                            <option value={{mark}}>{{mark}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>За що:</label>
-                    <input type='text' name='reason' id='textInput'>
-                </div>
-                <div class="button-container">
-                    <div class="button" onclick="sendData()">Відправити</div>
-                </div>
+                <form action = 'http://16.16.198.178/add_marks_post' method="post">
+                    <div class="form-group">
+                        <label style="width: 100px;">Кому:</label>
+                        <select name="student" id="select1">
+                            {% for student in student_list %}
+                                <option value={{student[0]}} id='student'>{{student[1]}}</option>
+                            {% endfor %}                
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="width: 100px;">Предмет:</label>
+                        <select name='subject' id="select2">
+                            {% for subj in subj_list %}
+                                <option value={{subj_list.index(subj)}}>{{subj}}</option>
+                            {% endfor %}  
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="width: 100px;">Оцінка:</label>
+                        <select name='mark' id="select3" >
+                            {% for mark in marks_list %}
+                                <option value={{mark}}>{{mark}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>За що:</label>
+                        <input type='text' name='reason' id='textInput'>
+                    </div>
+                    <button type="submit"value="Submit">Submit</button>
+                </form>
             
         </span>
+        
     </div>
-    <script>
+    
         
 
-        function sendData() {
-            const student = document.getElementById('select1').value;
-            const subject = document.getElementById('select2').value;
-            const mark = document.getElementById('select3').value;
-            const reason = document.getElementById('textInput').value;
-
-            const data = `student=${encodeURIComponent(student)}&subject=${encodeURIComponent(subject)}&mark=${encodeURIComponent(mark)}&reason=${encodeURIComponent(reason)}`;
-
-            fetch('http://16.16.198.178/add_marks_post', {
-                method: 'POST',
-                
-                body: data
-            })
-            
-            
-        }
-
-
         
-    </script>
 </body>
 </html>
