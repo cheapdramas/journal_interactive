@@ -28,6 +28,7 @@ def get_namescame():
 def get_all_subjects():
     url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
     req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
     for i in req:
 
         return ast.literal_eval(i.text)
@@ -35,6 +36,7 @@ def get_all_subjects():
 def get_dates_represent():
     url = ['https://16.16.198.178.nip.io/get_dates_represent']
     req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
     for i in req:
 
         return ast.literal_eval(i.text)
@@ -42,6 +44,7 @@ def get_dates_represent():
 def get_schedule(day_index:int):
     url = [f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}']
     req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
     for i in req:
 
         return ast.literal_eval(i.text)
