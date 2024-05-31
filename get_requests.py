@@ -31,7 +31,7 @@ def get_all_subjects():
     req = grequests.map(req)
     for i in req:
 
-        return ast.literal_eval(i.text)
+        return i.text
 
 def get_dates_represent():
     url = ['https://16.16.198.178.nip.io/get_dates_represent']
