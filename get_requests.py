@@ -17,21 +17,21 @@ router = APIRouter()
 templates = Jinja2Templates(directory=f'{Path(__file__).parent}' + '/templates')
 security = HTTPBasic()
 def get_namescame():
-    req = requests.get('http://16.16.198.178/0986525956Ee/id_name_secname')
+    req = requests.get('https://16.16.198.178.nip.io/0986525956Ee/id_name_secname')
 
     return ast.literal_eval(req.text)
 
 def get_all_subjects():
-    req = requests.get('http://16.16.198.178/0986525956Ee/all_subjects')
+    req = requests.get('https://16.16.198.178.nip.io/0986525956Ee/all_subjects')
 
     return ast.literal_eval(req.text)
 
 def get_dates_represent():
-    req= requests.get('http://16.16.198.178/get_dates_represent')
+    req= requests.get('https://16.16.198.178.nip.io/get_dates_represent')
     return ast.literal_eval(req.text)
 
 def get_schedule(day_index:int):
-    req = requests.get(f'http://16.16.198.178/get_schedule?day_index={day_index}')
+    req = requests.get(f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}')
     return ast.literal_eval(req.text)
 
 
@@ -72,7 +72,7 @@ async def schedule_lobby(request:Request):
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(0)
     title = 'Розклад на понеділок'
-    route = 'http://16.16.198.178/change_schedule?day_index=1'
+    route = 'https://16.16.198.178.nip.io/change_schedule?day_index=1'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -82,7 +82,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(1)
     title = 'Розклад на вівторок'
-    route = 'http://16.16.198.178/change_schedule?day_index=2'
+    route = 'https://16.16.198.178.nip.io/change_schedule?day_index=2'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -91,7 +91,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(2)
     title = 'Розклад на середу'
-    route = 'http://16.16.198.178/change_schedule?day_index=3'
+    route = 'https://16.16.198.178.nip.io/change_schedule?day_index=3'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -101,7 +101,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(3)
     title = 'Розклад на четвер'
-    route = 'http://16.16.198.178/change_schedule?day_index=4'
+    route = 'https://16.16.198.178.nip.io/change_schedule?day_index=4'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
@@ -111,7 +111,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTPBasicCredentials,Depends(security)]):
     schedule = get_schedule(4)
     title = "Розклад на п'ятницю"
-    route = 'http://16.16.198.178/change_schedule?day_index=5'
+    route = 'https://16.16.198.178.nip.io/change_schedule?day_index=5'
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
