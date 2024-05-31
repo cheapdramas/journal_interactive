@@ -1,4 +1,4 @@
-import requests
+import grequests
 import ast
 from fastapi import APIRouter,Request
 from fastapi.templating import Jinja2Templates
@@ -17,22 +17,35 @@ router = APIRouter()
 templates = Jinja2Templates(directory=f'{Path(__file__).parent}' + '/templates')
 security = HTTPBasic()
 def get_namescame():
-    req = requests.get('https://16.16.198.178.nip.io/0986525956Ee/id_name_secname',verify=True)
+    url = ['https://16.16.198.178.nip.io/0986525956Ee/id_name_secname']
+    req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
+    for i in req:
 
-    return ast.literal_eval(req.text)
+
+        return ast.literal_eval(i.text)
 
 def get_all_subjects():
-    req = requests.get('https://16.16.198.178.nip.io/0986525956Ee/all_subjects',verify=True)
+    url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
+    req = [grequests.get(url) for url in url]
+    for i in req:
 
-    return ast.literal_eval(req.text)
+        return ast.literal_eval(i.text)
 
 def get_dates_represent():
-    req= requests.get('https://16.16.198.178.nip.io/get_dates_represent',verify=True)
-    return ast.literal_eval(req.text)
+    url = ['https://16.16.198.178.nip.io/get_dates_represent']
+    req = [grequests.get(url) for url in url]
+    for i in req:
+
+        return ast.literal_eval(i.text)
 
 def get_schedule(day_index:int):
-    req = requests.get(f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}',verify=True)
-    return ast.literal_eval(req.text)
+    url = [f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}']
+    req = [grequests.get(url) for url in url]
+    for i in req:
+
+        return ast.literal_eval(i.text)
+    
 
 
 
