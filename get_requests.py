@@ -132,3 +132,12 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
     all_subjects = get_all_subjects()
 
     return templates.TemplateResponse('schedule.html',{'request':request,'title':title,'schedule':schedule,'all_subjects':all_subjects,'name':'schedule','route':route})
+
+@router.get('/testreq')
+async def testing_request():
+
+    url = 'https://16.16.198.178.nip.io/change_schedule?day_index=5'
+    req = [grequests.get(url)]
+    req= grequests.map(req)
+    for i in req:
+        return i.text
