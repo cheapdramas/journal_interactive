@@ -57,7 +57,7 @@ async def lobby(request:Request):
     
     return templates.TemplateResponse('main.html',{'request':request})
 
-print(get_namescame())
+
 
 
 
