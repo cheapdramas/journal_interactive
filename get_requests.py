@@ -140,4 +140,4 @@ async def testing_request():
     req = [grequests.get(url)]
     req= grequests.map(req)
     for i in req:
-        return i.text
+        return (url,i)
