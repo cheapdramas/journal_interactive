@@ -136,7 +136,7 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 @router.get('/testreq')
 async def testing_request():
 
-    url = 'https://16.16.198.178.nip.io/change_schedule?day_index=5'
+    url = 'https://www.youtube.com/'
     req = [grequests.get(url)]
     req= grequests.map(req)
     for i in req:
