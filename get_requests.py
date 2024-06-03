@@ -3,6 +3,7 @@ import ast
 from fastapi import APIRouter,Request
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
+import requests
 from fastapi import APIRouter,Request,Form,Depends,HTTPException
 from fastapi.responses import RedirectResponse
 from http_basic import HTTPBasicCredentials,HTTPBasic
@@ -137,7 +138,5 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def testing_request():
 
     url = 'https://www.youtube.com/'
-    req = [grequests.get(url)]
-    req= grequests.map(req)
-    for i in req:
-        return (url,i)
+    a = requests.get(url)
+    return (url,a)
