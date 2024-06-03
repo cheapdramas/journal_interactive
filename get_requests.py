@@ -53,8 +53,8 @@ def get_schedule(day_index:int):
 
 
 @router.get('/')
-async def lobby(request:Request,whatever = None):
-    print(whatever)
+async def lobby(request:Request):
+    
     return templates.TemplateResponse('main.html',{'request':request})
 
 
@@ -74,8 +74,14 @@ async def add_marks_url(request:Request):
 
 @router.get('/add_hw')
 async def add_hw_url(request:Request):
-    dates_represent = get_dates_represent()
-    return templates.TemplateResponse('add_homework.html',{'request': request,'date_list':dates_represent,'name':'homework'})
+    url = ['https://16.16.198.178.nip.io/get_dates_represent']
+    req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
+    for i in req:
+
+        return i.text
+    
+    #return templates.TemplateResponse('add_homework.html',{'request': request,'date_list':dates_represent,'name':'homework'})
     
 
 @router.get('/schedule')
