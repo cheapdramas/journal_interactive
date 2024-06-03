@@ -17,13 +17,13 @@ router = APIRouter()
 templates = Jinja2Templates(directory=f'{Path(__file__).parent}' + '/templates')
 security = HTTPBasic()
 def get_namescame():
-    url = ['https://16.16.198.178.nip.io/0986525956Ee/id_name_secname']
-    req = [grequests.get(url) for url in url]
-    req = grequests.map(req)
-    for i in req:
+    urll = 'https://16.16.198.178.nip.io/0986525956Ee/id_name_secname'
+    reqi = [grequests.get(urll)]
+    reqi = grequests.map(reqi)
+    for i in reqi:
 
 
-        return ast.literal_eval(i.text)
+        return i
 
 def get_all_subjects():
     url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
