@@ -138,5 +138,5 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 async def testing_request():
 
     url = 'https://www.youtube.com/'
-    a = requests.get(url)
+    a = requests.get(url,verify=False)
     return (url,a)
