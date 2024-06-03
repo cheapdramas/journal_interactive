@@ -137,6 +137,8 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 @router.get('/testreq')
 async def testing_request():
 
-    url = 'https://www.youtube.com/'
-    a = requests.get(url,verify=False)
-    return (url,a)
+    
+    url = 'https://youtube.com'
+    req = [grequests.get(url)]
+    req=grequests.map(req)
+    return (url,req)
