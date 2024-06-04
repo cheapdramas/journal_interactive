@@ -1,5 +1,4 @@
-import gevent.monkey
-gevent.monkey.patch_all()
+
 import grequests
 import ast
 from fastapi import APIRouter,Request
