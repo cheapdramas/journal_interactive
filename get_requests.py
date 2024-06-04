@@ -1,5 +1,5 @@
 
-import grequests
+
 import ast
 from fastapi import APIRouter,Request
 from fastapi.templating import Jinja2Templates
@@ -21,37 +21,42 @@ router = APIRouter()
 templates = Jinja2Templates(directory=f'{Path(__file__).parent}' + '/templates')
 security = HTTPBasic()
 def get_namescame():
-    url = 'https://16.16.198.178.nip.io/0986525956Ee/id_name_secname'
-    req = [grequests.get(url)]
-    req = grequests.map(req)
-    for i in req:
+    pass
+    # url = 'https://16.16.198.178.nip.io/0986525956Ee/id_name_secname'
+    # req = [grequests.get(url)]
+    # req = grequests.map(req)
+    # for i in req:
 
 
-        return ast.literal_eval(i.text)
+    #     return ast.literal_eval(i.text)
 
 def get_all_subjects():
-    url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
-    req = [grequests.get(url) for url in url]
-    req = grequests.map(req)
-    for i in req:
+    pass
+    # url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
+    # req = [grequests.get(url) for url in url]
+    # req = grequests.map(req)
+    # for i in req:
 
-        return ast.literal_eval(i.text)
+    #     return ast.literal_eval(i.text)
+
 
 def get_dates_represent():
-    url = ['https://16.16.198.178.nip.io/get_dates_represent']
-    req = [grequests.get(url) for url in url]
-    req = grequests.map(req)
-    for i in req:
+    pass
+    # url = ['https://16.16.198.178.nip.io/get_dates_represent']
+    # req = [grequests.get(url) for url in url]
+    # req = grequests.map(req)
+    # for i in req:
 
-        return ast.literal_eval(i.text)
+    #     return ast.literal_eval(i.text)
 
 def get_schedule(day_index:int):
-    url = [f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}']
-    req = [grequests.get(url) for url in url]
-    req = grequests.map(req)
-    for i in req:
+    pass
+    # url = [f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}']
+    # req = [grequests.get(url) for url in url]
+    # req = grequests.map(req)
+    # for i in req:
 
-        return ast.literal_eval(i.text)
+    #     return ast.literal_eval(i.text)
     
 
 
