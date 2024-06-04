@@ -137,8 +137,10 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 @router.get('/testreq')
 async def testing_request():
 
-    
+    headers = {
+    "User-Agent":
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582"
+    }
     url = 'https://youtube.com'
-    req = [grequests.get(url)]
-    req=grequests.map(req)
+    req = requests.get(url,headers=headers)
     return (url,req)
