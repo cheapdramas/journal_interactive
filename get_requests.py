@@ -3,6 +3,9 @@ import ast
 from fastapi import APIRouter,Request
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
+import gevent.monkey
+gevent.monkey.patch_all()
+
 import requests
 from fastapi import APIRouter,Request,Form,Depends,HTTPException
 from fastapi.responses import RedirectResponse
