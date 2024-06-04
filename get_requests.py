@@ -1,5 +1,5 @@
 
-
+import grequests
 import ast
 from fastapi import APIRouter,Request
 from fastapi.templating import Jinja2Templates
@@ -22,42 +22,41 @@ router = APIRouter()
 templates = Jinja2Templates(directory=f'{Path(__file__).parent}' + '/templates')
 security = HTTPBasic()
 def get_namescame():
-    pass
-    # url = 'https://16.16.198.178.nip.io/0986525956Ee/id_name_secname'
-    # req = [grequests.get(url)]
-    # req = grequests.map(req)
-    # for i in req:
+    
+    url = 'https://16.16.198.178.nip.io/0986525956Ee/id_name_secname'
+    req = [grequests.get(url)]
+    req = grequests.map(req)
+    for i in req:
 
 
-    #     return ast.literal_eval(i.text)
+        return ast.literal_eval(i.text)
 
 def get_all_subjects():
-    pass
-    # url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
-    # req = [grequests.get(url) for url in url]
-    # req = grequests.map(req)
-    # for i in req:
+    
+    url = ['https://16.16.198.178.nip.io/0986525956Ee/all_subjects']
+    req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
+    for i in req:
 
-    #     return ast.literal_eval(i.text)
+        return ast.literal_eval(i.text)
 
 
 def get_dates_represent():
-    pass
-    # url = ['https://16.16.198.178.nip.io/get_dates_represent']
-    # req = [grequests.get(url) for url in url]
-    # req = grequests.map(req)
-    # for i in req:
+    
+    url = ['https://16.16.198.178.nip.io/get_dates_represent']
+    req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
+    for i in req:
 
-    #     return ast.literal_eval(i.text)
+        return ast.literal_eval(i.text)
 
 def get_schedule(day_index:int):
-    pass
-    # url = [f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}']
-    # req = [grequests.get(url) for url in url]
-    # req = grequests.map(req)
-    # for i in req:
-
-    #     return ast.literal_eval(i.text)
+    
+    url = [f'https://16.16.198.178.nip.io/get_schedule?day_index={day_index}']
+    req = [grequests.get(url) for url in url]
+    req = grequests.map(req)
+    for i in req:
+        return ast.literal_eval(i.text)
     
 
 
@@ -145,17 +144,12 @@ async def change_schedule_monday_url(request:Request,credentials: Annotated[HTTP
 
 @router.get('/testreq')
 async def testing_request():
-    url = 'https://youtube.com'
+    url = 'https://16.16.198.178.nip.io/get_dates_represent'
 
-    headers = {
-    "User-Agent":
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582"
-    }
-    req = reqto.get(url,headers=headers)
+    req=  requests.get(url)
+    return str((url,req.text))
 
-    return (url,req)
-    # url = 'https://youtube.com'
-    # req = requests.get(url,headers=headers,verify=False)
-    # return (url,req)
+
+    
 
 
