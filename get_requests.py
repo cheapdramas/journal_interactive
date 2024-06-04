@@ -1,3 +1,5 @@
+import gevent.monkey
+gevent.monkey.patch_all()
 import grequests
 import ast
 from fastapi import APIRouter,Request
@@ -146,3 +148,5 @@ async def testing_request():
     url = 'https://youtube.com'
     req = requests.get(url,headers=headers)
     return (url,req)
+
+
